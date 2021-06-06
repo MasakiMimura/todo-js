@@ -10,7 +10,7 @@ const onClickAdd = () => {
 
   // div生成
   const div = document.createElement("div");
-  div.className = "list-row";
+  div.className = "div-row";
 
   // p生成
   const p = document.createElement("P");
@@ -27,7 +27,9 @@ const onClickAdd = () => {
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", () => {
-    alert("削除");
+    // 押された削除ボタンの親タグ(li)を未完了リストから削除
+    const deleteTarget = deleteButton.parentNode.parentNode;
+    document.getElementById("incomplete-list").removeChild(deleteTarget);
   });
 
   // liタグの子要素に各要素の設定
